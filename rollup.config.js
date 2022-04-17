@@ -14,6 +14,7 @@ export default {
       babelHelpers: 'runtime',
       extensions,
       include: ['src/**/*'],
+      configFile: '../../.babelrc'
     }),
     commonjs({
       extensions,

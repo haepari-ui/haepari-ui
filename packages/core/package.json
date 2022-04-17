@@ -1,0 +1,12 @@
+{
+  "name": "@haepari-ui/core",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
+    "watch": "rollup -cw ../../rollup.config.js",
+    "test": "",
+    "release": "lerna version"
+  }
+}

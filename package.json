@@ -1,9 +1,13 @@
 {
   "name": "haepari-ui",
+  "private": true,
   "version": "0.0.1",
-  "main": "./dist/bundle.js",
   "repository": "https://github.com/haepari-ui/haepari-ui.git",
   "license": "MIT",
+  "main": "./dist/bundle.js",
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.9",
@@ -16,21 +20,21 @@
     "@rollup/plugin-commonjs": "^21.1.0",
     "@rollup/plugin-node-resolve": "^13.2.1",
     "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^7.0.0",
+    "lerna": "^4.0.0",
     "rollup": "^2.70.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
-    "standard-version": "^9.3.2",
     "typescript": "^4.6.3"
   },
   "scripts": {
     "prepare": "husky install",
-    "build": "rollup -c",
-    "watch": "rollup -cw",
+    "build": "lerna run build",
     "test": "",
     "cm": "cz",
-    "release": "standard-version"
+    "release": "lerna version --no-push"
   },
   "config": {
     "commitizen": {
