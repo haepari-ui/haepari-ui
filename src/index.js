@@ -1,5 +1,3 @@
-export const helloWorld = () => {
-  console.log("Hello, world!");
-};
+import { add } from './add'
 
-helloWorld();
+console.log(add(1, 2));
