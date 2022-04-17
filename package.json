@@ -1,7 +1,7 @@
 {
   "name": "haepari-ui",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "./dist/bundle.js",
   "repository": "https://github.com/haepari-ui/haepari-ui.git",
   "license": "MIT",
   "devDependencies": {
@@ -10,13 +10,16 @@
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^7.0.0",
+    "rollup": "^2.70.2",
     "standard-version": "^9.3.2"
   },
   "scripts": {
-    "cm": "cz",
     "prepare": "husky install",
-    "release": "standard-version",
-    "test": ""
+    "build": "rollup -c",
+    "watch": "rollup -cw",
+    "test": "",
+    "cm": "cz",
+    "release": "standard-version"
   },
   "config": {
     "commitizen": {
