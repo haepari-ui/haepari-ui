@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
@@ -11,17 +11,54 @@
       "changelogPreset": {
         "name": "conventional-changelog-conventionalcommits",
         "types": [
-          {"type": "feat", "section": "Features"},
-          {"type": "fix", "section": "Bug Fixes"},
-          {"type": "chore", "hidden": true},
-          {"type": "docs", "hidden": true},
-          {"type": "style", "hidden": true},
-          {"type": "refactor", "section": "Refactor"},
-          {"type": "perf", "section": "Performance"},
-          {"type": "test", "hidden": true},
-          {"type": "build", "section": "Build System"},
-          {"type": "ci", "hidden": true}
-        ]
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
+          {
+            "type": "chore",
+            "hidden": true
+          },
+          {
+            "type": "docs",
+            "hidden": true
+          },
+          {
+            "type": "style",
+            "hidden": true
+          },
+          {
+            "type": "refactor",
+            "section": "Refactor"
+          },
+          {
+            "type": "perf",
+            "section": "Performance"
+          },
+          {
+            "type": "test",
+            "hidden": true
+          },
+          {
+            "type": "build",
+            "section": "Build System"
+          },
+          {
+            "type": "ci",
+            "hidden": true
+          }
+        ],
+        "issuePrefixes": [
+          "#"
+        ],
+        "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
+        "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
+        "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
+        "userUrlFormat": "{{host}}/{{user}}"
       },
       "message": "chore(release): %s"
     },
