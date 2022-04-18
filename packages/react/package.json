@@ -8,6 +8,7 @@
     "watch": "rollup -cw ../../rollup.config.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "lint": "eslint .",
     "test": "",
     "release": "lerna version"
   },
