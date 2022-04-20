@@ -15,12 +15,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * install ESLint and Prettier ([14e6b7f](https://github.com/haepari-ui/haepari-ui/commit/14e6b7fb0e60f7eb9bb3220a3309774612e4f922))
 * install Jest and Testing Library ([1a84ff8](https://github.com/haepari-ui/haepari-ui/commit/1a84ff8d46e0f451b804b2d1fe1cb285d18a3dc7))
-
-
-
-### [0.0.2](https://github.com/haepari-ui/haepari-ui/compare/v0.0.1...v0.0.2) (2022-04-17)
-
-
-### Build System
-
-* install Lerna ([20d2dab](https://github.com/haepari-ui/haepari-ui/commit/20d2dabd1ff067f4d4cfd3d56d2353e998cf3d67))
+* install Storybook ([589f73e](https://github.com/haepari-ui/haepari-ui/commit/589f73e084d5ceada70c39e911e1762eebf1a16c))
