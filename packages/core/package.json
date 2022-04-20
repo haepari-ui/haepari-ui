@@ -6,7 +6,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
     "watch": "rollup -cw ../../rollup.config.js",
-    "test": "",
+    "lint": "eslint .",
+    "test": "jest -u",
     "release": "lerna version"
   }
 }

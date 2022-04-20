@@ -1,0 +1,28 @@
+{
+  "name": "@haepari-ui/react",
+  "version": "0.0.2",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
+    "watch": "rollup -cw ../../rollup.config.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "lint": "eslint .",
+    "test": "jest -u",
+    "release": "lerna version"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
+    "@storybook/react": "^6.4.22",
+    "@testing-library/react": "^13.1.1",
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
