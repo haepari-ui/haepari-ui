@@ -1,6 +1,7 @@
 import { isNullOrUndefined } from '../utils/type';
+import { pipe } from '../utils/pipe';
 
-export default class RangedNumber {
+export class RangedNumber {
   private _value: number;
   private _minValue: number;
   private _maxValue: number;
@@ -23,6 +24,8 @@ export default class RangedNumber {
   }
 
   get value() { return this._value };
+  get minValue() { return this._minValue };
+  get maxValue() { return this._maxValue };
   set value(newValue: number) {
     if(!RangedNumber.isMinAndMaxValid(this._minValue, this._maxValue)) {
       throw new Error('Number range is invalid.');
@@ -30,4 +33,22 @@ export default class RangedNumber {
     this._value = newValue;
   }
 
+}
+
+export class CircularlyRangedNumber extends RangedNumber {
+  constructor(value: number, minValue: number, maxValue: number) {
+    super(value, minValue, maxValue);
+  }
+
+  private normalizeValue(value: number) {
+    return pipe(value, [
+      lhs => lhs - this.minValue,
+      lhs => lhs % this.maxValue,
+      lhs => lhs + Math.abs(this.minValue),
+    ]);
+  }
+
+  set value(newValue: number) {
+    this.value = this.normalizeValue(newValue);
+  }
 }
