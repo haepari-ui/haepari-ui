@@ -17,7 +17,7 @@ export default {
       configFile: './.babelrc'
     }),
     commonjs({
-      extensions,
+      extensions
     }),
     nodeResolve({ extensions }),
     peerDepsExternal(),
