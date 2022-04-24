@@ -1,4 +1,4 @@
-import { HSBColor, RGBColor } from './Color';
+import { HSVColor, RGBColor } from './Color';
 import { describe, expect, it } from '@jest/globals';
 
 describe('RGBColor', () => {
@@ -22,17 +22,17 @@ describe('RGBColor', () => {
   });
 });
 
-describe('HSBColor', () => {
-  let color: HSBColor;
+describe('HSVColor', () => {
+  let color: HSVColor;
   beforeEach(() => {
     // https://en.wikipedia.org/wiki/Shades_of_purple#Byzantium
-    color = new HSBColor(311, 63.4, 43.9, 127);
+    color = new HSVColor(311, 63.4, 43.9, 127);
   })
 
   it('Get value', () => {
     expect(color.hue).toBe(311);
     expect(color.satuation).toBe(63.4);
-    expect(color.brightness).toBe(43.9);
+    expect(color.value).toBe(43.9);
     expect(color.alpha).toBe(127);
   });
 
