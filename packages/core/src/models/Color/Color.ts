@@ -1,4 +1,4 @@
-import { CircularlyRangedNumber, RangedNumber } from './RangedNumber';
+import { CircularlyRangedNumber, RangedNumber } from '../RangedNumber/RangedNumber';
 
 export class RGB {
   private _red: RangedNumber;
