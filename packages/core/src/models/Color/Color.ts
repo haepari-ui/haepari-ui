@@ -13,7 +13,10 @@ abstract class Color {
   }
 
   get alpha() { return this._alpha.value }
-  public abstract hexString(includePrefix: boolean): string;
+  public abstract toHexString({
+    includeAlpha,
+    includePrefix
+  }): string;
 }
 export class RGBColor extends Color {
   protected _red: RangedNumber;
@@ -32,14 +35,17 @@ export class RGBColor extends Color {
   get red() { return this._red.value }
   get green() { return this._green.value }
   get blue() { return this._blue.value }
-  public hexString(includePrefix: boolean = false): string {
+  public toHexString({
+    includeAlpha = false,
+    includePrefix = false
+  } = {}): string {
     return [
       includePrefix ? Color.hexStringPrefix : '',
-      convertDecToHexString(this._red.value),
-      convertDecToHexString(this._green.value),
-      convertDecToHexString(this._blue.value),
-      convertDecToHexString(this._alpha.value),
-    ].join();
+      convertDecToHexString(this._red.value, 2),
+      convertDecToHexString(this._green.value, 2),
+      convertDecToHexString(this._blue.value, 2),
+      includeAlpha ? convertDecToHexString(this._alpha.value, 2) : '',
+    ].join('');
   };
 }
 
@@ -63,18 +69,28 @@ export class HSBColor extends Color {
 
   public toRGBColor = () => {
     // https://en.wikipedia.org/wiki/HSL_and_HSV#HSV_to_RGB
-    const huePercentage = this._hue.value / 100;
-    const satuationPercentage = this._satuation.value / 100;
-    const brightnessPercentage = this._brightness.value / 100;
-    const k = (n: number) => ((huePercentage / 60) + n) % 6;
-    const f = (n: number) => ((brightnessPercentage / 100) * (1 - satuationPercentage * Math.max(0, Math.min(k(n), 4 - k(n), 1))) * 255);
+    const hue = this._hue.value;
+    const normalizedSatuation = this._satuation.value / 100;
+    const normalizedBrightness = this._brightness.value / 100;
+    const f = (n: number) => {
+      const k = ((hue / 60) + n) % 6;
+      const t = Math.max(Math.min(k, 4 - k, 1), 0);
+      const normalizedColorValue = normalizedBrightness - (normalizedBrightness * normalizedSatuation * t);
+      return Math.round(normalizedColorValue * 256);
+    };     
     return new RGBColor(f(5), f(3), f(1), this._alpha.value);
   };
 
   get hue() { return this._hue.value }
   get satuation() { return this._satuation.value }
   get brightness() { return this._brightness.value }
-  public hexString(includePrefix: boolean = false): string {
-    return this.toRGBColor().hexString(includePrefix);
+  public toHexString({
+    includeAlpha = false,
+    includePrefix = false
+  } = {}): string {
+    return this.toRGBColor().toHexString({
+      includeAlpha,
+      includePrefix
+    });
   };
 }
